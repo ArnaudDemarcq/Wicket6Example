@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_1_0.xsd"
+                 version="1.0">
+
+    <entity class="beans.UserBean" access="PROPERTY" metadata-complete="true">
+        <table name="User"/>
+        <attributes>
+            <id name="id" >
+                <generated-value />
+            </id>
+            <basic name="login" >
+                <column name="login"/>
+            </basic>
+            <basic name="password" >
+                <column name="password"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>
