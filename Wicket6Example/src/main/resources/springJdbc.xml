@@ -6,12 +6,12 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:util="http://www.springframework.org/schema/util" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-	http://www.springframework.org/schema/context
-	http://www.springframework.org/schema/context/spring-context-2.5.xsd
-        http://www.springframework.org/schema/security
-        http://www.springframework.org/schema/security/spring-security-2.0.1.xsd
-        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-2.5.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security-2.0.1.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
     <!-- Data Source  -->
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
@@ -21,16 +21,16 @@
         <property name="username" value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>
     </bean>
-    
+
     <!-- Entity Manager Factory -->
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-                <property name="database" value="HSQL"/>
+                <property name="database" value="${application.database.database}"/>
                 <property name="databasePlatform" value="${hibernate.dialect}"/>
                 <property name="showSql" value="${application.database.showSql}"/>
-                <property name="generateDdl" value="true"/>
+                <property name="generateDdl" value="${application.database.generateDdl}"/>
             </bean>
         </property>
         <property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml"/>
@@ -46,8 +46,8 @@
             <value>beans.TestEntity</value>
         </constructor-arg>
     </bean>
-    
-        <!-- DAOs -->
+
+    <!-- DAOs -->
     <bean id="userBeanDao" class="test.dao.UserBeanDao" />
-   
+
 </beans>
