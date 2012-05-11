@@ -3,4 +3,5 @@
     <application>wicket-gcsql-example</application>
     <version>0.0.1</version>
     <sessions-enabled>true</sessions-enabled>
+    <threadsafe>true</threadsafe>
 </appengine-web-app>
