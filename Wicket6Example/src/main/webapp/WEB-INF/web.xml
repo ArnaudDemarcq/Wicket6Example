@@ -20,7 +20,7 @@
         <param-value>
             classpath:springConfiguration.xml
             classpath:springSecuritySettings.xml
-            classpath:springJdbc.xml
+            classpath:springJdbc_GAE.xml
         </param-value>
     </context-param>
 
