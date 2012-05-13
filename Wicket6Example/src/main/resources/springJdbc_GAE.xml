@@ -22,25 +22,37 @@
         <property name="password" value="${jdbc.password}"/>
     </bean>
 
+<!--
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource">
+            <ref bean="dataSource" />
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+    </bean>
+    -->
+
     <!-- Entity Manager Factory -->
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-                <property name="database" value="${application.database.database}"/>
-                <property name="databasePlatform" value="${hibernate.dialect}"/>
-                <property name="showSql" value="${application.database.showSql}"/>
-                <property name="generateDdl" value="${application.database.generateDdl}"/>
-                <property name=""
+                <!-- These properties are for some reason ignored -->
             </bean>
         </property>
-        <property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml"/>
+        <property name="persistenceXmlLocation" value="classpath:META-INF/persistence_GAE.xml"/>
     </bean>
 
     <bean id="transactionManager"
           class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
+      <!--  -->
 
     <!-- DAOs -->
     <bean id="testEntityDao2" class="test.dao.GenericDao">
