@@ -31,7 +31,6 @@
                 <property name="databasePlatform" value="${hibernate.dialect}"/>
                 <property name="showSql" value="${application.database.showSql}"/>
                 <property name="generateDdl" value="${application.database.generateDdl}"/>
-                <property name=""
             </bean>
         </property>
         <property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml"/>
